@@ -1,6 +1,6 @@
 ## makeCacheMatrix() creates a special "matrix" object that stores, as attributes, its own value and its inverse.
 ## Just after creation, the special "matrix" object does not stores its inverse value. 
-## Thus cacheSolve() fucntion must be called to get the inverse.
+## Thus cacheSolve() function must be called to get the inverse.
 ## cacheSolve() called for the first time for a special "matrix" object, computes the inverse of the special "matrix".
 ## Upon subsequent calls of cacheSolve() for the same special "matrix" object (provided the underlying matrix value has not been modified)
 ## returns the inverse value from Cache without doing any computations for inverse.  
@@ -19,11 +19,11 @@ makeCacheMatrix <- function(originalMatrix = matrix()) {  # variable 'originalMa
         originalMatrix <<- newMatrix  # updates the 'originalMatrix' attribute with new matrix.
         
         inverseOfMatrix <<- NULL  # resets the 'inverseOfMatrix' to null.
-                                  # forces recomputation of inverse when there is any change in the 'originalMatrix' attribute.
+                                  # forces re-computation of inverse when there is any change in the 'originalMatrix' attribute.
         
     }
     
-    getMatrix <- function() {  # accessor function for 'originalMatrix', returns the matrix refferenced by 'originalMatrix' attribute.
+    getMatrix <- function() {  # accessor function for 'originalMatrix', returns the matrix referenced by 'originalMatrix' attribute.
         originalMatrix
     }
     
@@ -32,25 +32,25 @@ makeCacheMatrix <- function(originalMatrix = matrix()) {  # variable 'originalMa
         inverseOfMatrix <<- calculatedInverseOfMatrix
     }
     
-    getInverseOfMatrix <- function() {  # returns the matrix refferenced by 'inverseOfMatrix'
+    getInverseOfMatrix <- function() {  # returns the matrix referenced by 'inverseOfMatrix'
         
         inverseOfMatrix
     }
     
     list(setMatrix = setMatrix, getMatrix = getMatrix,
          setInverseOfMatrix = setInverseOfMatrix,
-         getInverseOfMatrix = getInverseOfMatrix)  # sets refferences to the accessor and mutator functions.
+         getInverseOfMatrix = getInverseOfMatrix)  # sets references to the accessor and mutator functions.
     
 }
 
 
-## This funtion returns the cached inverse of the special "matrix" object (returned by makeCacheMatrix function) if available.
+## This function returns the cached inverse of the special "matrix" object (returned by makeCacheMatrix function) if available.
 ## In case the special "matrix" object does not have its inverse stored as an attribute,
 ## this function computes the inverse of the special "matrix" and sets it back to the special "matrix" object.
 
 cacheSolve <- function(specilMatrixObject, ...) {
     
-    cachedInverseOfMatrix <- specilMatrixObject$getInverseOfMatrix()  # reads the inverse of the sepcial "matrix" object. 
+    cachedInverseOfMatrix <- specilMatrixObject$getInverseOfMatrix()  # reads the inverse of the special "matrix" object. 
     
     if( ! is.null(cachedInverseOfMatrix)){  # the 'if' block returns the 'cachedInverseOfMatrix' if its not null in the special "matrix" object
         
