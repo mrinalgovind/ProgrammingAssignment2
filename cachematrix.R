@@ -27,12 +27,12 @@ makeCacheMatrix <- function(originalMatrix = matrix()) {  # variable 'originalMa
         originalMatrix
     }
     
-    setInverseOfMatrix <- function(calculatedInverseOfMatrix) {  # sets the inverse of matrix
+    setInverseOfMatrix <- function(calculatedInverseOfMatrix) {  # mutator function for 'inverseOfMatrix',sets the inverse of matrix
         
         inverseOfMatrix <<- calculatedInverseOfMatrix
     }
     
-    getInverseOfMatrix <- function() {  # returns the matrix referenced by 'inverseOfMatrix'
+    getInverseOfMatrix <- function() {  # accessor function for 'inverseOfMatrix', returns the matrix referenced by 'inverseOfMatrix'
         
         inverseOfMatrix
     }
